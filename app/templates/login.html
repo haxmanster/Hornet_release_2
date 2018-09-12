@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="login-page">
+  <div class="form">
+    <form class="login-form" action="" method="post">
+        <input type="text" placeholder="Username" name="username" value="{{request.form.username }}">
+        <input type="password" placeholder="Password" name="password" value="{{request.form.password }}">
+        <input type="hidden" placeholder="Admin, Nauczyciec, Rodzic" name="grupa" value="{{request.form.username}}">
+        <button type="submit" value="Login">Zaloguj</button>
+      </form>
+      {% if error %}
+        <p class="error"><strong>Error:</strong> {{ error }}
+      {% endif %}
+  </div>
+</div>
+
+{% endblock %}

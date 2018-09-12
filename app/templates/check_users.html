@@ -1,0 +1,75 @@
+{% extends 'admin.html' %}
+
+{% block body %}
+
+<div class="admin_field">
+  <div class="panel panel-primary">
+            <div class="panel-heading">
+                  <div class="row">
+                      <div class="col-md-6 col-lg-6 colors" align="left">
+                          <p> Baza użytkowników: </p>
+                      </div>
+                      <div class="col-md-6 col-lg-6" align="right">
+                        <form action="" method="post" class="form-inline">
+                            <input class="colors form-control" type="text" placeholder="Search.." name="person_id" value="{{ request.form.person_id }}" align="left">
+                            <button type="submit" class="btn btn-success"><i class="fa fa-search"></i></button>
+                        </form>
+                      </div>
+                  </div>
+            </div>
+            <div class="panel-body">
+                  <div class="row">
+
+                      <div class="col-md-1 col-lg-1" align="left">
+                          <ul>
+                               <p>Id: </p>
+                            {% for item in data %}
+                              <li>{{item[0]}}</li>
+                            {% endfor %}
+                          </ul>
+                       </div>
+
+                       <div class="col-md-2 col-lg-2 " align="left">
+
+                           <ul>
+                               <p>User Group: </p>
+                            {% for item in data %}
+                              <li>{{item[1]}}</li>
+                            {% endfor %}
+                          </ul>
+
+                       </div>
+                      <div class="col-md-1 col-lg-1 " align="left">
+                          <ul>
+                              <p>Username: </p>
+                            {% for item in data %}
+                              <li>{{item[2]}}</li>
+                            {% endfor %}
+                          </ul>
+                      </div>
+                      <div class="col-md-5 col-lg-5" align="left">
+
+                          <ul>
+                               <p>Password: </p>
+                                 {% for item in data %}
+                              <li>{{item[3]}}</li>
+                            {% endfor %}
+                          </ul>
+                      </div>
+                       <div class="col-md-3 col-lg-3"align="left">
+                            <ul>
+                                <p>Email: </p>
+                            {% for item in data %}
+                              <li>{{item[4]}}</li>
+                            {% endfor %}
+                          </ul>
+                      </div>
+
+                  </div>
+            </div>
+  </div>
+</div>
+
+
+
+{% endblock %}

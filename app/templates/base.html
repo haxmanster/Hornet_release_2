@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>{{the_title}}</title>
+  <link rel="icon" type="image/png" href="/static/ico/clock.ico">
+   	<link rel="stylesheet" href="/static/css/main.css" />
+    <link rel="stylesheet" href="/static/css/dashboard.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=VT323&amp;subset=latin-ext" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+</head>
+<body>
+
+<header>
+<div class="example3">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+          {% if session['username'] %}
+            <h1>Witaj : {{info}}</h1>
+          {% else %}
+          <h1>Baza Przedszkolaka</h1>
+          {% endif %}
+      </div>
+      <div id="navbar3" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+            {% if grupa == 'nauczyciel' %}
+                    <li><a href="{{ url_for('index') }}">Home</a></li>
+	                <li><a href="{{ url_for('profil') }}">Profil</a></li>
+                    <li><a href="{{ url_for('child') }}">Child</a></li>
+            {% endif %}
+            {% if grupa == 'rodzic' %}
+                    <li><a href="{{ url_for('index') }}">Home</a></li>
+                    <li><a href="{{ url_for('profil') }}">Profil</a></li>
+            {% endif %}
+            {% if grupa == 'admin' %}
+                    <li><a href="{{ url_for('index') }}">Home</a></li>
+                    <li><a href="{{ url_for('register') }}">Dodaj uzytkownika</a></li>
+	                <li><a href="{{ url_for('profil') }}">Profil</a></li>
+                    <li><a href="{{ url_for('child') }}">Child</a></li>
+                    <li><a href="{{ url_for('admin') }}">Admin</a></li>
+                    <li><a href="{{ url_for('upload_file') }}">send file</a></li>
+            {% endif %}
+            {% if session['username'] %}
+             <li><a href="{{ url_for('logout') }}">Wyloguj</a></li>
+            {% else %}
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+            {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+     {% block header%}
+
+      {% endblock %}
+</header>
+        {% with messages = get_flashed_messages() %}
+        {%if messages%}
+            {% for message in messages %}
+                <div class="alert alert-success alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><i class="glyphicon glyphicon-remove-circle"></i></button>
+                    <h3>{{ message }}</h3>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+{%block body%}
+
+{% endblock %}
+
+
+
+<div class="footer">
+  <p>Copyright by Grzegorz Wolyniec design by Tweety86</p>
+</div>
+<!-- LIBRARY -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
+</script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js">
+</script>
+<script src="http://code.jquery.com/jquery-3.2.1.min.js">
+</script>
+</body>
+</html>

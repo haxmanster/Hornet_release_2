@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block body %}
+
+
+<div class="panel panel-primary">
+            <div class="panel-heading">
+
+              {% for item in data[:1] %}
+                 <h4 class="panel-heading">{{item[1]}} {{item[2]}}</h4>
+            </div>
+
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-3 col-lg-3 " align="left">
+                  <h5><b>Imię:</b></h5>
+                  <h5><b>Nazwisko:</b></h5>
+                  <h5><b>Data ur:</b> </h5>
+                  <h5><b>Pesel:</b></h5>
+                  <h5><b>Grupa:</b></h5>
+                </div>
+                <div class="col-md-9 col-lg-9" align="left">
+                  <h5>{{item[1]}}</h5>
+                  <h5>{{item[2]}}</h5>
+                  <h5>{{item[3]}}</h5>
+                  <h5>{{item[0]}}</h5>
+                  <h5>{{item[4]}}</h5>
+                </div>
+              </div>
+            </div>
+    {% if session['username'] == username %}
+<P>CHUJ</P>
+{% endif %}
+  </div>
+      {% endfor %}
+{% endblock %}

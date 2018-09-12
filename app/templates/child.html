@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block body %}
+
+
+    <div class="form">
+        <h3>Dodaj przedszkolaka:</h3>
+        <form class="login-form" action="" method="post">
+            <input type="number" placeholder="PESEL dziecka" name="person_id" value="{{request.form.person_id }}"/>
+            <input type="text" placeholder="Imię dziecka" name="name" value="{{request.form.name}}"/>
+            <input type="text" placeholder="Nazwisko dziecka" name="surname" value="{{ request.form.surname }}"/>
+            <input type="text"  placeholder="Data urodzenia" name="birth" value="{{request.form.birth}}"/>
+            <input type="text" placeholder="Grupa" name="grupa" value="{{request.form.grupa}}"/>
+            <button type="submit" value="dodaj">DODAJ</button>
+        </form>
+    </div>
+
+
+
+{% endblock %}

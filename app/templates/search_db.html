@@ -1,0 +1,41 @@
+{% extends 'admin.html' %}
+
+{% block body %}
+
+<div class="admin_field">
+  <div class="panel panel-primary">
+            <div class="panel-heading">
+                  <div class="row">
+                      <div class="col-md-6 col-lg-6 colors" align="left">
+                          <p> Karta Przedszkolaka wpisz Pesel aby go wyszukać </p>
+                      </div>
+                      <div class="col-md-6 col-lg-6" align="right">
+                        <form action="" method="post" class="form-inline">
+                            <input class="colors form-control" type="text" placeholder="Search.." name="person_id" value="{{ request.form.person_id }}" align="left">
+                            <button type="submit" class="btn btn-success"><i class="fa fa-search"></i></button>
+                        </form>
+                      </div>
+                  </div>
+            </div>
+            <div class="panel-body">
+                  <div class="row">
+                       <div class="col-md-4 col-lg-4 " align="left">
+                             {% for item in data %}
+                                <P> {{item}} </P>
+                          {% endfor %}
+                       </div>
+                      <div class="col-md-4 col-lg-4 " align="left">
+                          <textarea name= 'uwagi' cols="110" rows="5"> wpisz</textarea>
+                          <button type="submit" class="btn btn-success">Wyslij <i class="fa fa-bell" aria-hidden="true"></i></button>
+                      </div>
+                      <div class="col-md-4 col-lg-4 " align="left">
+                      </div>
+                      <div class="col-md-4 col-lg-4 " align="left">
+                      </div>
+
+
+                      </div>
+                  </div>
+            </div>
+</div>
+{% endblock %}
