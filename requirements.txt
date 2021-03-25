@@ -40,7 +40,7 @@ python-dateutil==2.7.3
 python-keystoneclient==3.17.0
 python3-openid==3.1.0
 pytz==2018.5
-PyYAML==3.13
+PyYAML==5.4
 requests==2.19.1
 rfc3986==1.1.0
 six==1.11.0
