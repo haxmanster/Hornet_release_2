@@ -47,7 +47,7 @@ six==1.11.0
 SQLAlchemy==1.2.11
 SQLite3Database==0.2.0
 stevedore==1.29.0
-urllib3==1.23
+urllib3==1.26.5
 WebOb==1.8.2
 Werkzeug==0.14.1
 wrapt==1.10.11
